@@ -8,3 +8,6 @@ There is one server written in php. On this server is a mysql database.
 The server knows what mp3 file is on what device(if you have more than one device. for example: android mobile phone, and personal computer)
 
 If some files where created new on one device, the server copies the files to the other device. But only you want that. If you dont want that, the server only regognizes that there are new files, that can be copied. If you want that files by another time, the server copies it.
+
+
+This is what the project should be like. Right know there is about 50% work done. To finish this project, we need more worker on it. So please feel free to help us.
