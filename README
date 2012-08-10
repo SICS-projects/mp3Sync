@@ -1,6 +1,23 @@
 What is this project about:
 
-You can imagine the mp3Sync project as a mp3 player for android. but this mp3 player does snycronization for you and as you wish to.
+You can imagine the mp3Sync project as a mp3 player for android. But this mp3 player does snycronization for you and as you wish to.
+
+For example:
+
+You have 3 devices(One Windows PC at home, one Windows PC at work and one Android mobile phone):
+* You add one song on the PC at home and you want to have that song automaticaly syncronized on the PC at work. 
+  This project does that for you.
+* You add one song on the PC at home and your want to have that song automatically syncronized with you Android mobile phone, as soon as it is connected to a WLan point. 
+  This project dies that for you.
+
+This project should syncronize your songs at your command automaticaly if you wish to. Baybe you dont want a syncronization. 
+Baybe you want some songs as stream if you press the play button. 
+
+
+
+
+What is the technical background behind the project:
+____________________________________________________
 
 The syncronization is desiged at folowing:
 
@@ -10,6 +27,9 @@ The server knows what mp3 file is on what device(if you have more than one devic
 If some files where created new on one device, the server copies the files to the other device. But only you want that. If you dont want that, the server only regognizes that there are new files, that can be copied. If you want that files by another time, the server copies it.
 
 
+
+Summery
+_______
 This is what the project should be like. Right know there is about 50% work done. To finish this project, we need more worker on it. So please feel free to help us.
 
 If you want to have more information about everything in this project you can visit the wiki pages. In case you cannot find the information you need in the wiki pages, please contact us via email jgugenberger@gmail.com
