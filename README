@@ -1,1 +1,10 @@
-Hello World
+What is this project about:
+
+You can imagine the mp3Sync project as a mp3 player for android. but this mp3 player does snycronization for you and as you wish to.
+
+The syncronization is desiged at folowing:
+
+There is one server written in php. On this server is a mysql database. 
+The server knows what mp3 file is on what device(if you have more than one device. for example: android mobile phone, and personal computer)
+
+If some files where created new on one device, the server copies the files to the other device. But only you want that. If you dont want that, the server only regognizes that there are new files, that can be copied. If you want that files by another time, the server copies it.
