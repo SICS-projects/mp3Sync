@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-	<string name="server_preference_category_summery">Edit your server preferences</string>
-	<string name="ftp_server_preference_category_summery">Edit your FTP server preferences</string>
-	<string name="sql_server_preference_category_summery">Edit your SQL server preferences</string>
-	<string name="http_server_preference_category_summery">Edit your HTTP server preferences</string>
-	<string name="sync_preference_category_summery">Edit preferences about syncronisation</string>
-</resources>
