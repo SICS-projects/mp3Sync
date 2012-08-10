@@ -1,0 +1,62 @@
+/**
+ * 
+ */
+package JGApps.MP3Synch.Manager;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
+import JGApps.MP3Synch.Comunication.SqLiteController;
+import JGApps.MP3Synch.Container.SongData;
+import JGApps.MP3Synch.Exceptions.NoAppContextException;
+import JGApps.MP3Synch.Global.Global;
+import JGApps.MP3Synch.Helper.ListConverter;
+import android.content.ContentValues;
+import android.database.Cursor;
+
+/**
+ * @author joachim
+ *
+ */
+public class DatabaseManager {
+	public static Cursor getSonglistAsCursorFromDatabase(){
+		return null;
+}
+	
+	public static List<SongData> getSonglistFromDatabase(){
+		List<Hashtable<String, Object>> result = new ArrayList<Hashtable<String, Object>>();
+		List<SongData> resultData = new ArrayList<SongData>();
+		
+		try {
+			SqLiteController db = new SqLiteController(Global.getAppContext());
+			
+			db.createTableIfNotExists("songs", new String[] {"name", "filePath"}, null, false);
+			result = db.selectAsHash("songs", new String[] {"_id", "name", "filePath"}, null, null, null, null, null);
+			
+			ListConverter converter = new ListConverter(result);
+			resultData =  converter.convertToSongDataList();
+			
+		} catch (NoAppContextException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return resultData;
+	}
+
+	public static void saveNewSongs(List<SongData> data) throws NoAppContextException{
+		SqLiteController db = new SqLiteController(Global.getAppContext());
+		
+		for(SongData sData : data){
+			ContentValues values = new ContentValues();
+			values.put("_id", sData.getID());
+			values.put("name", sData.getDataName());
+			values.put("filePath", sData.getDataPathOnServer());
+			
+			db.insert("songs",null, values);
+		}
+	}
+}
