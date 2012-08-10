@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="ftp_server_preference_host_key">ftp_server_preference_host_key</string>
+	<string name="ftp_server_preference_port_key">ftp_server_preference_port_key</string>
+	<string name="ftp_server_preference_username_key">ftp_server_preference_username_key</string>
+	<string name="ftp_server_preference_password_key">ftp_server_preference_password_key</string>
+	
+	
+	<string name="sql_server_preference_host_key">sql_server_preference_host_key</string>
+	<string name="sql_server_preference_port_key">sql_server_preference_port_key</string>
+	<string name="sql_server_preference_username_key">sql_server_preference_username_key</string>
+	<string name="sql_server_preference_password_key">sql_server_preference_password_key</string>
+	
+	<string name="http_server_preference_host_key">http_server_preference_host_key</string>
+	<string name="http_server_preference_port_key">http_server_preference_port_key</string>
+	<string name="http_server_preference_username_key">http_server_preference_username_key</string>
+	<string name="http_server_preference_password_key">http_server_preference_password_key</string>
+	
+	<string name="server_update_loop_key">server_update_loop_key</string>
+	
+	
+	
+	<string name="server_preference_category_key">serverPrefs</string>
+	
+</resources>

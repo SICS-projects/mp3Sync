@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" 
+					android:title="@string/app_preference_category_title">
+	<PreferenceScreen
+							android:title="@string/server_preference_category_title"
+							android:summary="@string/server_preference_category_summery">
+			<PreferenceScreen
+							android:title="@string/ftp_server_preference_category_title"
+							android:summary="@string/ftp_server_preference_category_summery">
+				    <EditTextPreference android:key="@string/ftp_server_preference_host_key"
+										android:title="@string/ftp_server_preference_host_title"
+										android:dialogTitle="@string/ftp_server_preference_hostdialog_text"
+										></EditTextPreference>
+					<EditTextPreference android:key="@string/ftp_server_preference_port_key"
+										android:title="@string/ftp_server_preference_port_title"
+										android:dialogTitle="@string/ftp_server_preference_portdialog_text"
+										></EditTextPreference>
+					<EditTextPreference android:key="@string/ftp_server_preference_username_key"
+								android:title="@string/ftp_server_preference_username_title"
+								android:dialogTitle="@string/ftp_server_preference_usernamedialog_text"
+								></EditTextPreference>
+					<EditTextPreference android:key="@string/ftp_server_preference_password_key"
+								android:title="@string/ftp_server_preference_password_title"
+								android:dialogTitle="@string/ftp_server_preference_passworddialog_text"
+								></EditTextPreference>
+			</PreferenceScreen>
+			
+			<PreferenceScreen
+							android:title="@string/http_server_preference_category_title"
+							android:summary="@string/http_server_preference_category_summery">
+				    <EditTextPreference android:key="@string/http_server_preference_host_key"
+										android:title="@string/http_server_preference_host_title"
+										android:dialogTitle="@string/http_server_preference_hostdialog_text"
+										></EditTextPreference>
+					<EditTextPreference android:key="@string/http_server_preference_port_key"
+										android:title="@string/http_server_preference_port_title"
+										android:dialogTitle="@string/http_server_preference_portdialog_text"
+										></EditTextPreference>
+					<EditTextPreference android:key="@string/http_server_preference_username_key"
+								android:title="@string/http_server_preference_username_title"
+								android:dialogTitle="@string/http_server_preference_usernamedialog_text"
+								></EditTextPreference>
+					<EditTextPreference android:key="@string/http_server_preference_password_key"
+								android:title="@string/http_server_preference_password_title"
+								android:dialogTitle="@string/http_server_preference_passworddialog_text"
+								></EditTextPreference>
+			</PreferenceScreen>
+			
+			<PreferenceScreen
+							android:title="@string/sql_server_preference_category_title"
+							android:summary="@string/sql_server_preference_category_summery">
+				    <EditTextPreference android:key="@string/sql_server_preference_host_key"
+										android:title="@string/sql_server_preference_host_title"
+										android:dialogTitle="@string/sql_server_preference_hostdialog_text"
+										></EditTextPreference>
+					<EditTextPreference android:key="@string/sql_server_preference_port_key"
+										android:title="@string/sql_server_preference_port_title"
+										android:dialogTitle="@string/sql_server_preference_portdialog_text"
+										></EditTextPreference>
+					<EditTextPreference android:key="@string/sql_server_preference_username_key"
+								android:title="@string/sql_server_preference_username_title"
+								android:dialogTitle="@string/sql_server_preference_usernamedialog_text"
+								></EditTextPreference>
+					<EditTextPreference android:key="@string/sql_server_preference_password_key"
+								android:title="@string/sql_server_preference_password_title"
+								android:dialogTitle="@string/sql_server_preference_passworddialog_text"
+								></EditTextPreference>
+			</PreferenceScreen>
+		
+	</PreferenceScreen>
+	
+	<PreferenceScreen
+							android:title="@string/sync_preference_category_title"
+							android:summary="@string/sync_preference_category_summery">
+				<EditTextPreference android:key="@string/server_update_loop_key"
+							android:title="@string/server_update_loop_title"
+							android:dialogTitle="@string/server_update_loop_text"
+							></EditTextPreference>
+	</PreferenceScreen>
+		  
+</PreferenceScreen>
