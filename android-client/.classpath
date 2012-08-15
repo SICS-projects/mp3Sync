@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="/home/joachim/git-projects/mp3Sync/android-client/lib/JLayer1.0/jl1.0.jar"/>
+	<classpathentry kind="lib" path="/home/joachim/git-projects/mp3Sync/android-client/lib/MpegAudioSPI1.9.5/mp3spi1.9.5.jar"/>
+	<classpathentry kind="lib" path="/home/joachim/git-projects/mp3Sync/android-client/lib/commons-net-3.0.1/commons-net-3.0.1.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
