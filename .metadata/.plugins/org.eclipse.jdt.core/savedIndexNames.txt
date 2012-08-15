@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+/home/joachim/git-projects/mp3Sync/.metadata/.plugins/org.eclipse.jdt.core
+3424890644.index
+1059242489.index
+3696648813.index
+4172455764.index
