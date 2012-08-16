@@ -10,14 +10,14 @@ You have 3 devices(One Windows PC at home, one Windows PC at work and one Androi
 * You add one song on the PC at home and your want to have that song automatically syncronized with you Android mobile phone, as soon as it is connected to a WLan point. 
   This project dies that for you.
 
-This project should syncronize your songs at your command automaticaly if you wish to. Baybe you dont want a syncronization. 
-Baybe you want some songs as stream if you press the play button. 
+This project should syncronize your songs at your command automaticaly if you wish to. Maybe you dont want a syncronization. 
+Maybe you want some songs as stream if you press the play button. 
 
 
 
 
 What is the technical background behind the project:
-____________________________________________________
+====================================================
 
 The syncronization is desiged at folowing:
 
@@ -29,7 +29,7 @@ If some files where created new on one device, the server copies the files to th
 
 
 Summery
-_______
+=======_
 This is what the project should be like. Right know there is about 50% work done. To finish this project, we need more worker on it. So please feel free to help us.
 
 If you want to have more information about everything in this project you can visit the wiki pages. In case you cannot find the information you need in the wiki pages, please contact us via email at sics-projects@gmx.at or [newsgroup]: https://groups.google.com/forum/?fromgroups#!forum/mp3sync .
