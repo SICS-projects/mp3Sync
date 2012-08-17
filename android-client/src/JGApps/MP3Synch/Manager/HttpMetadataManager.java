@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+import android.app.Activity;
+
 import com.sics_android_sdk.Comunication.HttpMetadataController;
 import com.sics_android_sdk.Exceptions.HttpPortNotValidException;
 import com.sics_android_sdk.Exceptions.WrongHttpReturnStateException;
@@ -15,8 +17,6 @@ import com.sics_android_sdk.Manager.PreferencesManager;
 
 import JGApps.MP3Synch.R;
 import JGApps.MP3Synch.Container.SongData;
-import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Global.Global;
 import JGApps.MP3Synch.Helper.ListConverter;
 import JGApps.MP3Synch.Helper.XmlParser_old;
 
@@ -25,9 +25,15 @@ import JGApps.MP3Synch.Helper.XmlParser_old;
  *
  */
 public class HttpMetadataManager {
-	public static List<SongData> getDataListFromServer() throws NoAppContextException, HttpPortNotValidException, WrongHttpReturnStateException, WrongHttpServerURLException{
+	private Activity activity;
+	
+	public HttpMetadataManager(Activity activity){
+		this.activity = activity;
+	}
+	
+	public List<SongData> getDataListFromServer() throws HttpPortNotValidException, WrongHttpReturnStateException, WrongHttpServerURLException{
     	//TODO: Besseren namen finden f�r PreferencesManagement
-		String httpServerURL = PreferencesManager.getPreferenceAsString(Global.getAppContext().getString(R.string.http_server_preference_host_key), "HTTP://", Global.getAppContext());
+		String httpServerURL = PreferencesManager.getPreferenceAsString(this.activity.getApplicationContext().getString(R.string.http_server_preference_host_key), "HTTP://", this.activity.getApplicationContext());
 		//Integer httpServerPort = Integer.parseInt(PreferencesManagment.getPreferenceAsString(Global.getAppContext().getString(R.string.ftp_server_preference_port_key), "0", Global.getAppContext()));
 		
 		HttpMetadataController httpController = new HttpMetadataController(httpServerURL);

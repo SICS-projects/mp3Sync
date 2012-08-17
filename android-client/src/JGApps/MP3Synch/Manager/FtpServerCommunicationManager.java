@@ -18,8 +18,6 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 
-import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Global.Global;
 import JGApps.MP3Synch.Threads.DownloadDataTask;
 import android.media.AsyncPlayer;
 import android.media.MediaPlayer;

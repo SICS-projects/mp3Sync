@@ -10,9 +10,8 @@ import java.util.List;
 import com.sics_android_sdk.Comunication.SqLiteController;
 
 import JGApps.MP3Synch.Container.SongData;
-import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Global.Global;
 import JGApps.MP3Synch.Helper.ListConverter;
+import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 
@@ -21,35 +20,33 @@ import android.database.Cursor;
  *
  */
 public class DatabaseManager {
+	private Activity activity;
+	
+	public DatabaseManager(Activity activity){
+		this.activity = activity;
+	}
+	
 	public static Cursor getSonglistAsCursorFromDatabase(){
 		return null;
 }
 	
-	public static List<SongData> getSonglistFromDatabase(){
+	public List<SongData> getSonglistFromDatabase(){
 		List<Hashtable<String, Object>> result = new ArrayList<Hashtable<String, Object>>();
 		List<SongData> resultData = new ArrayList<SongData>();
 		
-		try {
-			SqLiteController db = new SqLiteController(Global.getAppContext());
-			
-			db.createTableIfNotExists("songs", new String[] {"name", "filePath"}, null, false);
-			result = db.selectAsHash("songs", new String[] {"_id", "name", "filePath"}, null, null, null, null, null);
-			
-			ListConverter converter = new ListConverter(result);
-			resultData =  converter.convertToSongDataList();
-			
-		} catch (NoAppContextException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		SqLiteController db = new SqLiteController(this.activity.getApplicationContext());
 		
+		db.createTableIfNotExists("songs", new String[] {"name", "filePath"}, null, false);
+		result = db.selectAsHash("songs", new String[] {"_id", "name", "filePath"}, null, null, null, null, null);
 		
+		ListConverter converter = new ListConverter(result);
+		resultData =  converter.convertToSongDataList();
 		
 		return resultData;
 	}
 
-	public static void saveNewSongs(List<SongData> data) throws NoAppContextException{
-		SqLiteController db = new SqLiteController(Global.getAppContext());
+	public void saveNewSongs(List<SongData> data) {
+		SqLiteController db = new SqLiteController(this.activity.getApplicationContext());
 		
 		for(SongData sData : data){
 			ContentValues values = new ContentValues();

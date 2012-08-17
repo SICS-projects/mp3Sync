@@ -13,7 +13,8 @@ import JGApps.MP3Synch.Container.SongListOptions;
  *
  */
 public class SongListOptionsManager {
-	public static SongListOptions createSongListOptions(List<SongData> serverData){
+	
+	public SongListOptions createSongListOptions(List<SongData> serverData){
 		//TODO vereinfachung
 		int i=0;
 		SongListOptions slOptions = new SongListOptions();

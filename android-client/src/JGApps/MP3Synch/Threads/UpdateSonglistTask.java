@@ -3,9 +3,6 @@
  */
 package JGApps.MP3Synch.Threads;
 
-import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Global.Global;
-import JGApps.MP3Synch.Manager.GUIManager;
 import android.os.AsyncTask;
 
 /**
@@ -28,7 +25,7 @@ public class UpdateSonglistTask extends AsyncTask<String, Integer, byte[]> {
 	
 	@Override
 	protected void onProgressUpdate(Integer... progress){
-		GUIManager.mergeSongListWithServer();
+//		GUIManager.mergeSongListWithServer();
 	}
 	
 	

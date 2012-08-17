@@ -12,8 +12,6 @@ import java.io.InputStream;
 import android.os.Environment;
 import android.view.View;
 import JGApps.MP3Synch.Events.FinishedDownloadEvent;
-import JGApps.MP3Synch.Exceptions.GlobalValueIsNullException;
-import JGApps.MP3Synch.Global.Global;
 import JGApps.MP3Synch.Threads.MP3PlayerTask;
 
 /**
@@ -26,17 +24,9 @@ public class DownloadListener implements DownloadListenerInterface{
 		String PATH = Environment.getExternalStorageDirectory()
                 + "/Download/mp3/";
 
-		try 
-		{
-			Global.getPlayerControlls().getPlaysongButton().setVisibility(View.VISIBLE);
-			Global.getPlayerControlls().getPausesongButton().setVisibility(View.VISIBLE);
-			Global.getPlayerControlls().getStopsongButton().setVisibility(View.VISIBLE);
-		} 
-		catch (GlobalValueIsNullException e5) 
-		{
-			// TODO Auto-generated catch block
-			e5.printStackTrace();
-		}
+//			Global.getPlayerControlls().getPlaysongButton().setVisibility(View.VISIBLE);
+//			Global.getPlayerControlls().getPausesongButton().setVisibility(View.VISIBLE);
+//			Global.getPlayerControlls().getStopsongButton().setVisibility(View.VISIBLE);
 		
     	
 		File input = new File(PATH, e.getNameOfItem());
@@ -48,22 +38,22 @@ public class DownloadListener implements DownloadListenerInterface{
 			e1.printStackTrace();
 		}
 		
-		try {
-			Global.getMediaPlayer().setDataSource(input.toString());
-			Global.getMediaPlayer().prepare();
-		} catch (IllegalArgumentException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		} catch (IllegalStateException e3) {
-			// TODO Auto-generated catch block
-			e3.printStackTrace();
-		} catch (IOException e4) {
-			// TODO Auto-generated catch block
-			e4.printStackTrace();
-		}
+//		try {
+//			Global.getMediaPlayer().setDataSource(input.toString());
+//			Global.getMediaPlayer().prepare();
+//		} catch (IllegalArgumentException e2) {
+//			// TODO Auto-generated catch block
+//			e2.printStackTrace();
+//		} catch (IllegalStateException e3) {
+//			// TODO Auto-generated catch block
+//			e3.printStackTrace();
+//		} catch (IOException e4) {
+//			// TODO Auto-generated catch block
+//			e4.printStackTrace();
+//		}
 		
-		MP3PlayerTask mp3PlayerTask = new MP3PlayerTask(Global.getMediaPlayer());
-		mp3PlayerTask.execute();
+//		MP3PlayerTask mp3PlayerTask = new MP3PlayerTask(Global.getMediaPlayer());
+//		mp3PlayerTask.execute();
 		
 	}
 

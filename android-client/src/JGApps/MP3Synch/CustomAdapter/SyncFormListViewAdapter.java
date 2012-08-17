@@ -26,12 +26,9 @@ import android.os.Environment;
 import android.text.Layout;
 import android.view.View;
 import JGApps.MP3Synch.R;
-import JGApps.MP3Synch.Container.PlayerControllsContainer;
 import JGApps.MP3Synch.Container.SongListOptions;
 import JGApps.MP3Synch.EventListener.DownloadListener;
 import JGApps.MP3Synch.Events.FinishedDownloadEvent;
-import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Global.Global;
 import JGApps.MP3Synch.Manager.FtpServerCommunicationManager;
 import JGApps.MP3Synch.Misc.Enums.ItemOptions;
 import JGApps.MP3Synch.Threads.DownloadDataTask;
@@ -58,6 +55,15 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 	private Context context;
 	private SongListOptions songlistOptions = null;
 	
+	private Button playsongButton;
+	private Button pausesongButton;
+	private Button stopsongButton;
+	private Button replaySongButton;
+	
+	private LinearLayout playerButtonsLayout;
+	
+	private Button songInfoButton;
+	
 	
 	private DownloadDataTask downloadTask = null;
 	
@@ -67,13 +73,6 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 		this.songlistOptions = songListOptions;
 	}
 	
-	private void setGlobalPlayerControllsValue(Button playsongButton, Button pausesongButton, Button stopsongButton, Button replaySongButton,
-												SeekBar seekbar, TextView connectionInfo){
-		PlayerControllsContainer playerControlls = new PlayerControllsContainer(playsongButton, pausesongButton, stopsongButton, seekbar);
-		
-		Global.setPlayerControls(playerControlls);
-	}
-
 	public int getCount() {
 		
 		return songlistOptions.getCount();
@@ -100,22 +99,13 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 			rowLayout = (LinearLayout) convertView;
 		}
 
-		Button songInfoButton = (Button) rowLayout.findViewById(R.id.songInfo);
+		collectPlayerButtons(rowLayout);
 		
-		//final Button syncButton = (Button) rowLayout.findViewById(R.id.doSync);
-		final Button playsongButton = (Button) rowLayout.findViewById(R.id.startPlayer);
-		final Button pausesongButton = (Button) rowLayout.findViewById(R.id.pausePlayer);
-		final Button stopsongButton = (Button) rowLayout.findViewById(R.id.stopPlayer);
-		final Button replaySongButton = (Button) rowLayout.findViewById(R.id.playPlayer);
-		
-		final LinearLayout playerButtons = (LinearLayout) rowLayout.findViewById(R.id.playerButtons);
-		
-		//syncButton.setBackgroundResource(R.drawable.hackerl_green);
-		playsongButton.setBackgroundResource(R.drawable.playsong);
-		pausesongButton.setBackgroundResource(R.drawable.pausesong);
-		stopsongButton.setBackgroundResource(R.drawable.stopsong);
-		songInfoButton.setBackgroundResource(R.drawable.info);
-		replaySongButton.setBackgroundResource(R.drawable.playsong);
+//		playsongButton.setBackgroundResource(R.drawable.playsong);
+//		pausesongButton.setBackgroundResource(R.drawable.pausesong);
+//		stopsongButton.setBackgroundResource(R.drawable.stopsong);
+//		songInfoButton.setBackgroundResource(R.drawable.info);
+//		replaySongButton.setBackgroundResource(R.drawable.playsong);
 		
 
 		final SeekBar mSeekBar = (SeekBar) rowLayout.findViewById(R.id.songSeekBar);
@@ -141,11 +131,11 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 				}
 				else{
 					if (fromUser){
-						int timePosition = (Global.getMediaPlayer().getDuration()/100) * progress;
+//						int timePosition = (Global.getMediaPlayer().getDuration()/100) * progress;
 						
 	//					player.stop();
 						
-						Global.getMediaPlayer().seekTo(timePosition);
+//						Global.getMediaPlayer().seekTo(timePosition);
 						
 	//					player.start();
 					}
@@ -158,14 +148,14 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 		if (songlistOptions.getOptionForJustOneLine(ItemOptions.UNIC_PLAYSONG_STRING) == position){
 			mSeekBar.setVisibility(View.VISIBLE);
 			
-			playerButtons.setVisibility(View.VISIBLE);
+			playerButtonsLayout.setVisibility(View.VISIBLE);
 			
 			playsongButton.setVisibility(View.GONE);
 		}
 		else{
 			mSeekBar.setVisibility(View.GONE);
 			
-			playerButtons.setVisibility(View.GONE);
+			playerButtonsLayout.setVisibility(View.GONE);
 			
 			playsongButton.setVisibility(View.VISIBLE);
 		}
@@ -173,12 +163,7 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 		playsongButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				//Preparing the GUI To be controlled by a thread
-				setGlobalPlayerControllsValue(playsongButton, pausesongButton, stopsongButton, replaySongButton,
-						mSeekBar, connectionInfo);
-				
-				playSong(pausesongButton, stopsongButton, playsongButton, replaySongButton, position,
-						mSeekBar, connectionInfo, playerButtons);
+				playSong(position);
 				
 //				HttpServerComunication httpServer = new HttpServerComunication(pathOfFilename, 0);
 //				httpServer.getFile(pathOfFilename, "test");
@@ -188,12 +173,7 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 		replaySongButton.setOnClickListener(new OnClickListener(){
 
 			public void onClick(View v) {
-				//Preparing the GUI To be controlled by a thread
-				setGlobalPlayerControllsValue(playsongButton, pausesongButton, stopsongButton, replaySongButton,
-						mSeekBar, connectionInfo);
-				
-				playSong(pausesongButton, stopsongButton, playsongButton, replaySongButton, position,
-						mSeekBar, connectionInfo, playerButtons);
+				playSong(position);
 			}
 			
 		});
@@ -202,7 +182,7 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Global.getMediaPlayer().stop();
+//				Global.getMediaPlayer().stop();
 				
 //					downloadTask.StopExecuting();
 				
@@ -217,7 +197,7 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Global.getMediaPlayer().pause();
+//				Global.getMediaPlayer().pause();
 				
 				//Here i do not need a thread to update the GUI. So i can do it directly in here
 				pausesongButton.setVisibility(View.GONE);
@@ -260,11 +240,20 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 		return rowLayout;
 	}
 	
-	private void playSong(final Button pausesongButton, final Button  stopsongButton, final Button playsongButton, Button replaySongButton, final int position,
-							SeekBar mSeekbar, TextView connectionInfo, LinearLayout playerButtons){
-		
+	private void playSong(final int position){
 		FtpServerCommunicationManager ftpServerCommunicationManager = new FtpServerCommunicationManager();
 		ftpServerCommunicationManager.downloadFileTo(this.songlistOptions.getFilepathOfItemOnServer(position), 
 													 this.songlistOptions.getNameOfItem(position) + "mp3").addDownloadFinishedListener(new DownloadListener());
+	}
+	
+	private void collectPlayerButtons(LinearLayout rowLayout){
+		playsongButton = (Button) rowLayout.findViewById(R.id.startPlayer);
+		pausesongButton = (Button) rowLayout.findViewById(R.id.pausePlayer);
+		stopsongButton = (Button) rowLayout.findViewById(R.id.stopPlayer);
+		replaySongButton = (Button) rowLayout.findViewById(R.id.playPlayer);
+		
+		playerButtonsLayout = (LinearLayout) rowLayout.findViewById(R.id.playerButtons);
+		
+		songInfoButton = (Button) rowLayout.findViewById(R.id.songInfo);
 	}
 }

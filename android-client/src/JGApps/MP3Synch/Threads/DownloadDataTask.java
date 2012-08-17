@@ -39,9 +39,6 @@ import com.sics_android_sdk.Manager.PreferencesManager;
 import JGApps.MP3Synch.R;
 import JGApps.MP3Synch.EventListener.DownloadListener;
 import JGApps.MP3Synch.Events.FinishedDownloadEvent;
-import JGApps.MP3Synch.Exceptions.GlobalValueIsNullException;
-import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Global.Global;
 import JGApps.MP3Synch.Manager.FtpServerCommunicationManager;
 import JGApps.MP3Synch.Mapping.GUI.OptionsContainer.SeekbarOptions;
 import android.media.AsyncPlayer;
@@ -112,9 +109,6 @@ private FTPClient ftpClient = null;
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (NoAppContextException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (WrongHttpServerURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -147,14 +141,10 @@ private FTPClient ftpClient = null;
     	if (viewToUpdate == ViewsToUpdate.SEEKBAR){
 	    	if (progress != null && progress.length > 0){
 	    		SeekBar seekbar = null;
-				try {
-					seekbar = Global.getPlayerControlls().getSeekbar();
-				} catch (GlobalValueIsNullException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	    		seekbar.setVisibility(View.VISIBLE);
-	    		seekbar.setSecondaryProgress(progress[0]);
+				
+//	    		seekbar = Global.getPlayerControlls().getSeekbar();
+//	    		seekbar.setVisibility(View.VISIBLE);
+//	    		seekbar.setSecondaryProgress(progress[0]);
 	    	}
 	    	
 	    }
@@ -179,7 +169,7 @@ private FTPClient ftpClient = null;
     	
     }
     
-    protected void downloadFileTo(String remoteFile, String localFile) throws NumberFormatException, SocketException, IOException, NoAppContextException, WrongHttpServerURLException, WrongLoginnameOrPasswordException{
+    protected void downloadFileTo(String remoteFile, String localFile) throws NumberFormatException, SocketException, IOException, WrongHttpServerURLException, WrongLoginnameOrPasswordException{
 		ftpClient = new FTPClient();
 		
 		this.isDownloading = true;
@@ -199,32 +189,32 @@ private FTPClient ftpClient = null;
 		//TODO reinschreiben im grlobalen speicherberech was wie upgedaten werden soll
 	}
 	
-	protected void connect() throws NumberFormatException, SocketException, IOException, NoAppContextException, WrongHttpServerURLException{
-		String hostname = PreferencesManager.getPreferenceAsString("ftp_server_preference_host_key", "ftp://", Global.getAppContext());
-		String port = PreferencesManager.getPreferenceAsString("ftp_server_preference_port_key", "21", Global.getAppContext());
-		try{
-
-			if (hostname.startsWith("ftp://")){
-				hostname = hostname.substring(6);
-			}
-			
-			ftpClient.connect(hostname, Integer.parseInt(port));
-			ftpClient.enterLocalPassiveMode();
-		}
-		catch(IOException e){
-			throw new WrongHttpServerURLException();
-		}
+	protected void connect() throws NumberFormatException, SocketException, IOException, WrongHttpServerURLException{
+//		String hostname = PreferencesManager.getPreferenceAsString("ftp_server_preference_host_key", "ftp://", Global.getAppContext());
+//		String port = PreferencesManager.getPreferenceAsString("ftp_server_preference_port_key", "21", Global.getAppContext());
+//		try{
+//
+//			if (hostname.startsWith("ftp://")){
+//				hostname = hostname.substring(6);
+//			}
+//			
+//			ftpClient.connect(hostname, Integer.parseInt(port));
+//			ftpClient.enterLocalPassiveMode();
+//		}
+//		catch(IOException e){
+//			throw new WrongHttpServerURLException();
+//		}
 	}
 	
-	protected void login() throws NoAppContextException, IOException, WrongLoginnameOrPasswordException{
-		String username = PreferencesManager.getPreferenceAsString("ftp_server_preference_username_key", "", Global.getAppContext());
-		String password = PreferencesManager.getPreferenceAsString("ftp_server_preference_password_key", "", Global.getAppContext());
-		
-		try{
-			ftpClient.login(username, password);
-		}catch(IOException e){
-			throw new WrongLoginnameOrPasswordException();
-		}
+	protected void login() throws IOException, WrongLoginnameOrPasswordException{
+//		String username = PreferencesManager.getPreferenceAsString("ftp_server_preference_username_key", "", Global.getAppContext());
+//		String password = PreferencesManager.getPreferenceAsString("ftp_server_preference_password_key", "", Global.getAppContext());
+//		
+//		try{
+//			ftpClient.login(username, password);
+//		}catch(IOException e){
+//			throw new WrongLoginnameOrPasswordException();
+//		}
 	}
 	
 	protected void download(String remoteFile, String localFile) throws IOException{
