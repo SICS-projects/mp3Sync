@@ -36,7 +36,6 @@ public class DownloadListener implements DownloadListenerInterface{
 		{
 			// TODO Auto-generated catch block
 			e5.printStackTrace();
-			e5.showDialog("PlayerControll null!");
 		}
 		
     	

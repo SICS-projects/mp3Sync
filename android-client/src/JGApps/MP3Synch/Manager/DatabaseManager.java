@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-import JGApps.MP3Synch.Comunication.SqLiteController;
+import com.sics_android_sdk.Comunication.SqLiteController;
+
 import JGApps.MP3Synch.Container.SongData;
 import JGApps.MP3Synch.Exceptions.NoAppContextException;
 import JGApps.MP3Synch.Global.Global;

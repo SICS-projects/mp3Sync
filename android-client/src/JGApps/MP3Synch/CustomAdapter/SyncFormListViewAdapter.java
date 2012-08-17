@@ -32,7 +32,6 @@ import JGApps.MP3Synch.EventListener.DownloadListener;
 import JGApps.MP3Synch.Events.FinishedDownloadEvent;
 import JGApps.MP3Synch.Exceptions.NoAppContextException;
 import JGApps.MP3Synch.Global.Global;
-import JGApps.MP3Synch.Helper.HttpServerConnector;
 import JGApps.MP3Synch.Manager.FtpServerCommunicationManager;
 import JGApps.MP3Synch.Misc.Enums.ItemOptions;
 import JGApps.MP3Synch.Threads.DownloadDataTask;

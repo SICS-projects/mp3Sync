@@ -4,10 +4,8 @@
 package JGApps.MP3Synch.Threads;
 
 import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Exceptions.WrongHttpReturnStateException;
 import JGApps.MP3Synch.Global.Global;
 import JGApps.MP3Synch.Manager.GUIManager;
-import JGApps.MP3Synch.Manager.PreferencesManager;
 import android.os.AsyncTask;
 
 /**

@@ -32,17 +32,17 @@ import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.nntp.NewGroupsOrNewsQuery;
 
+import com.sics_android_sdk.Exceptions.WrongHttpServerURLException;
+import com.sics_android_sdk.Exceptions.WrongLoginnameOrPasswordException;
+import com.sics_android_sdk.Manager.PreferencesManager;
+
 import JGApps.MP3Synch.R;
 import JGApps.MP3Synch.EventListener.DownloadListener;
 import JGApps.MP3Synch.Events.FinishedDownloadEvent;
 import JGApps.MP3Synch.Exceptions.GlobalValueIsNullException;
 import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Exceptions.WrongHttpServerURLException;
-import JGApps.MP3Synch.Exceptions.WrongLoginnameOrPasswordException;
 import JGApps.MP3Synch.Global.Global;
-import JGApps.MP3Synch.Helper.HttpServerConnector;
 import JGApps.MP3Synch.Manager.FtpServerCommunicationManager;
-import JGApps.MP3Synch.Manager.PreferencesManager;
 import JGApps.MP3Synch.Mapping.GUI.OptionsContainer.SeekbarOptions;
 import android.media.AsyncPlayer;
 import android.media.MediaPlayer;

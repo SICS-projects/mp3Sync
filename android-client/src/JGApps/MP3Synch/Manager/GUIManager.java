@@ -6,16 +6,17 @@ package JGApps.MP3Synch.Manager;
 import java.util.Hashtable;
 import java.util.List;
 
+import com.sics_android_sdk.Exceptions.HttpPortNotValidException;
+import com.sics_android_sdk.Exceptions.WrongHttpReturnStateException;
+import com.sics_android_sdk.Exceptions.WrongHttpServerURLException;
+
 import android.app.ListActivity;
 
 import JGApps.MP3Synch.R;
-import JGApps.MP3Synch.Comunication.HttpMetadataController;
 import JGApps.MP3Synch.Container.SongData;
 import JGApps.MP3Synch.Container.SongListOptions;
 import JGApps.MP3Synch.CustomAdapter.SyncFormListViewAdapter;
-import JGApps.MP3Synch.Exceptions.HttpPortNotValidException;
 import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Exceptions.WrongHttpReturnStateException;
 import JGApps.MP3Synch.Global.Global;
 
 /**
@@ -41,13 +42,13 @@ public class GUIManager {
 			
 			fillListView(slOptions);
 		} catch (NoAppContextException e) {
-			e.showDialog();
 			e.printStackTrace();
 		} catch (HttpPortNotValidException e) {
-			e.showDialog();
 			e.printStackTrace();
 		} catch (WrongHttpReturnStateException e) {
-			e.showDialog();
+			e.printStackTrace();
+		} catch (WrongHttpServerURLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import JGApps.MP3Synch.Comunication.HttpMetadataController;
 import JGApps.MP3Synch.Container.SongData;
 import JGApps.MP3Synch.Container.SongListOptions;
 import JGApps.MP3Synch.CustomAdapter.SyncFormListViewAdapter;
 import JGApps.MP3Synch.Exceptions.AppContextAlreadySetException;
-import JGApps.MP3Synch.Exceptions.HttpPortNotValidException;
 import JGApps.MP3Synch.Exceptions.NoAppContextException;
-import JGApps.MP3Synch.Exceptions.WrongHttpReturnStateException;
 import JGApps.MP3Synch.Global.Global;
 import JGApps.MP3Synch.Manager.GUIManager;
 import JGApps.MP3Synch.Manager.SongListOptionsManager;
