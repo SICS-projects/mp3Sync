@@ -15,14 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="PreferencesMain" android:label="Einstellungen"
-            		android:screenOrientation="portrait"></activity>
-        <activity android:name="SynchForm"
-            		android:screenOrientation="portrait"></activity>
-        <activity android:name="PlayerMainForm"
-            		android:screenOrientation="portrait"></activity>
-        <activity android:name=".PreferencesActivity"
-            		android:screenOrientation="portrait"></activity>
+        <activity android:name="com.sics.mp3Sync.PreferencesActivity"></activity>
 
     </application>
 	

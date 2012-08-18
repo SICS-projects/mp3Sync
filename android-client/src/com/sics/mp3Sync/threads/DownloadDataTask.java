@@ -13,6 +13,7 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import com.sics.mp3Sync.eventListener.DownloadListenerInterface;
+import com.sics.mp3Sync.exceptions.RemoteFileNotFoundException;
 import com.sics_android_sdk.Exceptions.WrongHttpServerURLException;
 import com.sics_android_sdk.Exceptions.WrongLoginnameOrPasswordException;
 import com.sics_android_sdk.Manager.PreferencesManager;
@@ -87,6 +88,9 @@ public class DownloadDataTask extends AsyncTask<String, Integer, byte[]> {
 		} catch (WrongLoginnameOrPasswordException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (RemoteFileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return new byte[4];
@@ -144,7 +148,7 @@ public class DownloadDataTask extends AsyncTask<String, Integer, byte[]> {
     	
     }
     
-    protected void downloadFileTo(String remoteFile, String localFile) throws NumberFormatException, SocketException, IOException, WrongHttpServerURLException, WrongLoginnameOrPasswordException{
+    protected void downloadFileTo(String remoteFile, String localFile) throws NumberFormatException, SocketException, IOException, WrongHttpServerURLException, WrongLoginnameOrPasswordException, RemoteFileNotFoundException{
 		ftpClient = new FTPClient();
 		
 		this.isDownloading = true;
@@ -194,7 +198,7 @@ public class DownloadDataTask extends AsyncTask<String, Integer, byte[]> {
 		}
 	}
 	
-	protected void download(String remoteFile, String localFile) throws IOException{
+	protected void download(String remoteFile, String localFile) throws IOException, RemoteFileNotFoundException{
 		byte[] byteBuffer = new byte[1024];
 		
 		nameOfFile = localFile;
@@ -229,6 +233,11 @@ public class DownloadDataTask extends AsyncTask<String, Integer, byte[]> {
 
 	    int counter=0;
 	    float counterInsg = 0;
+	    
+	    if (inputStream == null){
+	    	throw new RemoteFileNotFoundException();
+	    }
+	    
 		while(((counter = inputStream.read(byteBuffer)) > 0)){
 			fos.write(byteBuffer, 0, counter);
 			
