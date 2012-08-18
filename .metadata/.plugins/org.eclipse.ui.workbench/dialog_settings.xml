@@ -23,11 +23,11 @@
 		</list>
 	</section>
 	<section name="ShowViewDialog">
-		<item value="372" key="DIALOG_WIDTH"/>
+		<item value="374" key="DIALOG_WIDTH"/>
 		<item value="com.android.ide.eclipse.adt.internal.lint.LintViewPart" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
 		<item value="32" key="DIALOG_Y_ORIGIN"/>
-		<item value="443" key="DIALOG_HEIGHT"/>
-		<item value="654" key="DIALOG_X_ORIGIN"/>
+		<item value="653" key="DIALOG_X_ORIGIN"/>
+		<item value="431" key="DIALOG_HEIGHT"/>
 		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="com.android.ide.eclipse.ddms.views.category"/>
