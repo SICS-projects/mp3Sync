@@ -17,6 +17,7 @@ import android.media.MediaPlayer;
 import android.os.Environment;
 import android.view.View;
 import JGApps.MP3Synch.R;
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View.OnClickListener;
@@ -32,6 +33,7 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 	private int countElements = -1;
 	private static int clickedItem = -1;
 	private Context context;
+	private Activity activity;
 	private SongListOptions songlistOptions = null;
 	
 	private Button playsongButton;
@@ -48,9 +50,10 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 	
 	private DownloadDataTask downloadTask = null;
 	
-	public SyncFormListViewAdapter(Context context, int textViewResourceId, SongListOptions songListOptions) {
+	public SyncFormListViewAdapter(Activity activity, Context context, int textViewResourceId, SongListOptions songListOptions) {
 		super(context, textViewResourceId);
 		this.context = context;
+		this.activity = activity;
 		this.songlistOptions = songListOptions;
 	}
 	
@@ -212,7 +215,7 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 	}
 	
 	private void playSong(final int position){
-		FtpServerCommunicationManager ftpServerCommunicationManager = new FtpServerCommunicationManager();
+		FtpServerCommunicationManager ftpServerCommunicationManager = new FtpServerCommunicationManager(this.activity);
 		ftpServerCommunicationManager.downloadFileTo(this.songlistOptions.getFilepathOfItemOnServer(position), 
 													 this.songlistOptions.getNameOfItem(position) + "mp3").setDownloadFinishedListener(new DownloadFinished());
 	}
@@ -265,6 +268,11 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 	
 			MP3PlayerTask mp3PlayerTask = new MP3PlayerTask(mediaPlayer);
 			mp3PlayerTask.execute();
+			
+		}
+
+		public void onDownloadProgress(Integer progress) {
+			// TODO Auto-generated method stub
 			
 		}
 		

@@ -13,4 +13,5 @@ import java.util.EventListener;
  */
 public interface DownloadListenerInterface extends EventListener {
 	void onDownloadFinished(Object... o);
+	void onDownloadProgress(Integer progress);
 }

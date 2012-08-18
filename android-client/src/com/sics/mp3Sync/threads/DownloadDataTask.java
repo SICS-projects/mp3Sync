@@ -15,6 +15,9 @@ import org.apache.commons.net.ftp.FTPFile;
 import com.sics.mp3Sync.eventListener.DownloadListenerInterface;
 import com.sics_android_sdk.Exceptions.WrongHttpServerURLException;
 import com.sics_android_sdk.Exceptions.WrongLoginnameOrPasswordException;
+import com.sics_android_sdk.Manager.PreferencesManager;
+
+import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -27,7 +30,8 @@ import android.widget.SeekBar;
  * Handles the download itself. This class represents the Thread that downloads the file and publics the metainfomation for updating the GUI 
  */
 public class DownloadDataTask extends AsyncTask<String, Integer, byte[]> {
-private FTPClient ftpClient = null;
+	private FTPClient ftpClient = null;
+	private Activity activity;
 	
 	private InputStream inputStream = null;
 	private FileOutputStream fos = null;
@@ -46,7 +50,7 @@ private FTPClient ftpClient = null;
 	
 	private boolean isDownloading = false;
 	
-	private DownloadListenerInterface finishedDownloadEvent;
+	private DownloadListenerInterface downloadListener;
 	
 /*	public DownloadDataTask(ArrayList<View> viewsToUpdate, MediaPlayer player){
 		this.viewsToUpdate = viewsToUpdate;
@@ -55,12 +59,12 @@ private FTPClient ftpClient = null;
 		prepareControlls();
 	}*/
 	
-	public DownloadDataTask(){
-
+	public DownloadDataTask(Activity activity){
+		this.activity = activity;
 	}
 	
 	public void setDownloadFinishedListener(DownloadListenerInterface listener){
-		this.finishedDownloadEvent = listener;
+		this.downloadListener = listener;
 	}
 
     protected byte[] doInBackground(String... metadata) {
@@ -97,7 +101,7 @@ private FTPClient ftpClient = null;
     }
 
     protected void onPostExecute(byte[] result) {
-    	this.finishedDownloadEvent.onDownloadFinished(localFile);
+    	this.downloadListener.onDownloadFinished(localFile);
     }
     
     @Override
@@ -131,6 +135,12 @@ private FTPClient ftpClient = null;
     		connectText.setVisibility(View.GONE);*/
 	    }
     	
+    	if (this.isDownloading){
+    		if (this.downloadListener != null){
+    			this.downloadListener.onDownloadProgress(progress[0]);
+    		}
+    	}
+    	
     	
     }
     
@@ -140,46 +150,48 @@ private FTPClient ftpClient = null;
 		this.isDownloading = true;
 		
 		this.viewToUpdate = ViewsToUpdate.CONNECTIONTEXT;
-		this.publishProgress();
+		this.publishProgress(0);
 		connect();
 		login();
 		this.viewToUpdate = ViewsToUpdate.SEEKBAR;
-		this.publishProgress();
+		this.publishProgress(0);
 		
 		ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
 		
 		download(remoteFile, localFile);
 		
 		close();
+		
+		this.isDownloading = false;
 		//TODO reinschreiben im grlobalen speicherberech was wie upgedaten werden soll
 	}
 	
 	protected void connect() throws NumberFormatException, SocketException, IOException, WrongHttpServerURLException{
-//		String hostname = PreferencesManager.getPreferenceAsString("ftp_server_preference_host_key", "ftp://", Global.getAppContext());
-//		String port = PreferencesManager.getPreferenceAsString("ftp_server_preference_port_key", "21", Global.getAppContext());
-//		try{
-//
-//			if (hostname.startsWith("ftp://")){
-//				hostname = hostname.substring(6);
-//			}
-//			
-//			ftpClient.connect(hostname, Integer.parseInt(port));
-//			ftpClient.enterLocalPassiveMode();
-//		}
-//		catch(IOException e){
-//			throw new WrongHttpServerURLException();
-//		}
+		String hostname = PreferencesManager.getPreferenceAsString("ftp_server_preference_host_key", "ftp://", activity.getApplicationContext());
+		String port = PreferencesManager.getPreferenceAsString("ftp_server_preference_port_key", "21", activity.getApplicationContext());
+		try{
+
+			if (hostname.startsWith("ftp://")){
+				hostname = hostname.substring(6);
+			}
+			
+			ftpClient.connect(hostname, Integer.parseInt(port));
+			ftpClient.enterLocalPassiveMode();
+		}
+		catch(IOException e){
+			throw new WrongHttpServerURLException();
+		}
 	}
 	
 	protected void login() throws IOException, WrongLoginnameOrPasswordException{
-//		String username = PreferencesManager.getPreferenceAsString("ftp_server_preference_username_key", "", Global.getAppContext());
-//		String password = PreferencesManager.getPreferenceAsString("ftp_server_preference_password_key", "", Global.getAppContext());
-//		
-//		try{
-//			ftpClient.login(username, password);
-//		}catch(IOException e){
-//			throw new WrongLoginnameOrPasswordException();
-//		}
+		String username = PreferencesManager.getPreferenceAsString("ftp_server_preference_username_key", "", activity.getApplicationContext());
+		String password = PreferencesManager.getPreferenceAsString("ftp_server_preference_password_key", "", activity.getApplicationContext());
+		
+		try{
+			ftpClient.login(username, password);
+		}catch(IOException e){
+			throw new WrongLoginnameOrPasswordException();
+		}
 	}
 	
 	protected void download(String remoteFile, String localFile) throws IOException{

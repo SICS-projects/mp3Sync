@@ -109,7 +109,7 @@ SongListOptions songListOptions = new SongListOptions();
 	}
 	
 	 private void fillListView(SongListOptions slOptions) {
-	    songsListView.setAdapter(new SyncFormListViewAdapter(this, R.layout.synchfilelistviewitem, slOptions));
+	    songsListView.setAdapter(new SyncFormListViewAdapter(this, this.getApplicationContext(), R.layout.synchfilelistviewitem, slOptions));
 	 }
 	 
 	 private class DownloadMetaDataFinished implements DownloadListenerInterface{
@@ -129,6 +129,11 @@ SongListOptions songListOptions = new SongListOptions();
 			SongListOptions slOptions = songListOptionsManager.createSongListOptions(localSongData);
 			
 			fillListView(slOptions);
+		}
+
+		public void onDownloadProgress(Integer progress) {
+			// TODO Auto-generated method stub
+			
 		}
 		 
 	 }
