@@ -160,13 +160,6 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 			
 			public void onClick(View v) {
 				playSong(position);
-				
-				PreferencesManager prefManager = new PreferencesManager();
-				String httpServerUrl = prefManager.getPreferenceAsString(context.getString(R.string.http_server_preference_host_key), "HTTP://", context);
-				HttpMetadataController httpServer = new HttpMetadataController(httpServerUrl);
-				
-//				HttpServerComunication httpServer = new HttpServerComunication(pathOfFilename, 0);
-//				httpServer.getFile(pathOfFilename, "test");
 			}
 		});
 		
