@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.sics_android_sdk.GUI.AlertDialogGUI"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Helper.DBConnector"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Helper.XmlParser"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Helper.HttpServerConnector"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Comunication.SqLiteController"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Exceptions.HttpPortNotValidException"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Exceptions.WrongHttpReturnStateException"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Exceptions.WrongHttpServerURLException"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Exceptions.WrongLoginnameOrPasswordException"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="JGApps.MP3Synch.Manager.DatabaseManager"/>
+<fullyQualifiedTypeName name="JGApps.MP3Synch.Manager.SongListOptionsManager"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
+<fullyQualifiedTypeName name="JGApps.MP3Synch.CustomAdapter.SyncFormListViewAdapter"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Comunication.HttpMetadataController"/>
+<fullyQualifiedTypeName name="com.sics_android_sdk.Manager.PreferencesManager"/>
+<fullyQualifiedTypeName name="JGApps.MP3Synch.Manager.HttpMetadataManager"/>
+</qualifiedTypeNameHistroy>

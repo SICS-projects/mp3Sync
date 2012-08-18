@@ -12,15 +12,20 @@
 	        <TextView android:text="name" android:id="@+id/songName" 
 	        			android:layout_width="wrap_content" 
 	        			android:layout_height="wrap_content"
-	        			android:layout_margin="15px"></TextView>
+	        			android:layout_margin="15px"
+	        			></TextView>
+	        
 	        <Button android:text="" android:id="@+id/startPlayer" 
 	        			android:layout_width="50px" 
 	        			android:layout_height="50px"
-	        			android:layout_margin="15px"></Button>
+	        			android:layout_margin="15px"
+	        			android:background="@drawable/playsong"></Button>
+	        
 	        <Button android:text="" android:id="@+id/songInfo" 
 	        			android:layout_width="50px" 
 	        			android:layout_height="50px"
-	        			android:layout_margin="15px"></Button>
+	        			android:layout_margin="15px"
+	        			android:background="@drawable/info"></Button>
    		</LinearLayout>
    		<LinearLayout android:id="@+id/playerButtons" 
     				android:layout_width="fill_parent" 
@@ -31,15 +36,19 @@
     				<Button android:text="" android:id="@+id/playPlayer" 
 	        			android:layout_width="50px" 
 	        			android:layout_height="50px"
-	        			android:layout_margin="15px"></Button>
+	        			android:layout_margin="15px"
+	        			android:background="@drawable/playsong"
+	        			></Button>
     				<Button android:text="" android:id="@+id/pausePlayer" 
 	        			android:layout_width="50px" 
 	        			android:layout_height="50px"
-	        			android:layout_margin="15px"></Button>
+	        			android:layout_margin="15px"
+	        			android:background="@drawable/pausesong"></Button>
 	        		<Button android:text="" android:id="@+id/stopPlayer" 
 	        			android:layout_width="50px" 
 	        			android:layout_height="50px"
-	        			android:layout_margin="15px"></Button>
+	        			android:layout_margin="15px"
+	        			android:background="@drawable/stopsong"></Button>
 	        		
     	</LinearLayout>
    		<LinearLayout android:id="@+id/playerSeekbar" 
