@@ -62,7 +62,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int app_preference_category_title=0x7f05001f;
         public static final int error_title=0x7f050005;
-        public static final int ftp_server_preference_category_summery=0x7f050036;
+        public static final int ftp_server_preference_category_summery=0x7f050039;
         public static final int ftp_server_preference_category_title=0x7f050016;
         public static final int ftp_server_preference_host_key=0x7f050007;
         public static final int ftp_server_preference_host_title=0x7f050019;
@@ -78,7 +78,7 @@ public final class R {
         public static final int ftp_server_preference_usernamedialog_text=0x7f050028;
         public static final int hello_world=0x7f050001;
         public static final int http_connection_error=0x7f050006;
-        public static final int http_server_preference_category_summery=0x7f050038;
+        public static final int http_server_preference_category_summery=0x7f05003b;
         public static final int http_server_preference_category_title=0x7f050018;
         public static final int http_server_preference_host_key=0x7f05000f;
         public static final int http_server_preference_host_title=0x7f05001d;
@@ -94,13 +94,14 @@ public final class R {
         public static final int http_server_preference_usernamedialog_text=0x7f05002c;
         public static final int internal_error=0x7f050004;
         public static final int menu_settings=0x7f050002;
+        public static final int name=0x7f050035;
         public static final int server_preference_category_key=0x7f050014;
-        public static final int server_preference_category_summery=0x7f050035;
+        public static final int server_preference_category_summery=0x7f050038;
         public static final int server_preference_category_title=0x7f050015;
         public static final int server_update_loop_key=0x7f050013;
         public static final int server_update_loop_text=0x7f050033;
         public static final int server_update_loop_title=0x7f050032;
-        public static final int sql_server_preference_category_summery=0x7f050037;
+        public static final int sql_server_preference_category_summery=0x7f05003a;
         public static final int sql_server_preference_category_title=0x7f050017;
         public static final int sql_server_preference_host_key=0x7f05000b;
         public static final int sql_server_preference_host_title=0x7f05001b;
@@ -114,8 +115,10 @@ public final class R {
         public static final int sql_server_preference_username_key=0x7f05000d;
         public static final int sql_server_preference_username_title=0x7f050022;
         public static final int sql_server_preference_usernamedialog_text=0x7f050030;
-        public static final int sync_preference_category_summery=0x7f050039;
+        public static final int sync_preference_category_summery=0x7f05003c;
         public static final int sync_preference_category_title=0x7f050034;
+        public static final int text=0x7f050036;
+        public static final int textview=0x7f050037;
         public static final int title_activity_main=0x7f050003;
     }
     public static final class style {

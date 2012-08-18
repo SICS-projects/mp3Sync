@@ -40,4 +40,10 @@
 	<string name="sync_preference_category_title">Preferences of syncronisation</string>
 	
 	<string name="app_name">WoS MP3-Titan</string>
+	
+	<string name="name">name</string>
+	
+	<string name="text">text</string>
+	
+	<string name="textview">TextView</string>
 </resources>
