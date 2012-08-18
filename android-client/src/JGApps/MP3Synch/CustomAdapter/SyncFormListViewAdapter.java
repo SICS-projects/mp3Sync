@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.concurrent.SynchronousQueue;
 
+import com.sics_android_sdk.Comunication.HttpMetadataController;
+import com.sics_android_sdk.Manager.PreferencesManager;
+
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 
@@ -101,13 +104,6 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 
 		collectPlayerButtons(rowLayout);
 		
-//		playsongButton.setBackgroundResource(R.drawable.playsong);
-//		pausesongButton.setBackgroundResource(R.drawable.pausesong);
-//		stopsongButton.setBackgroundResource(R.drawable.stopsong);
-//		songInfoButton.setBackgroundResource(R.drawable.info);
-//		replaySongButton.setBackgroundResource(R.drawable.playsong);
-		
-
 		final SeekBar mSeekBar = (SeekBar) rowLayout.findViewById(R.id.songSeekBar);
 		final TextView connectionInfo = (TextView) rowLayout.findViewById(R.id.connectionInfo);
 		
@@ -164,6 +160,10 @@ public class SyncFormListViewAdapter extends ArrayAdapter {
 			
 			public void onClick(View v) {
 				playSong(position);
+				
+				PreferencesManager prefManager = new PreferencesManager();
+				String httpServerUrl = prefManager.getPreferenceAsString(context.getString(R.string.http_server_preference_host_key), "HTTP://", context);
+				HttpMetadataController httpServer = new HttpMetadataController(httpServerUrl);
 				
 //				HttpServerComunication httpServer = new HttpServerComunication(pathOfFilename, 0);
 //				httpServer.getFile(pathOfFilename, "test");
