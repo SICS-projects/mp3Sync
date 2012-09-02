@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout android:id="@+id/songRowLayout" 
+    				android:layout_width="match_parent" 
+    				android:layout_height="match_parent"
+    				xmlns:android="http://schemas.android.com/apk/res/android"
+    				android:orientation="vertical">
+    		<LinearLayout android:id="@+id/l1" 
+    				android:layout_width="fill_parent" 
+    				android:layout_height="wrap_content"
+    				android:orientation="horizontal">
+    				
+	        <TextView android:text="@string/name" android:id="@+id/songName" 
+	        			android:layout_width="wrap_content" 
+	        			android:layout_height="wrap_content"
+	        			android:layout_margin="15dp"
+	        			></TextView>
+	        
+	        <Button android:text="" android:id="@+id/startPlayer" 
+	        			android:layout_width="50dp" 
+	        			android:layout_height="50dp"
+	        			android:layout_margin="15dp"
+	        			android:background="@drawable/playsong"></Button>
+	        
+	        <Button android:text="" android:id="@+id/songInfo" 
+	        			android:layout_width="50dp" 
+	        			android:layout_height="50dp"
+	        			android:layout_margin="15dp"
+	        			android:background="@drawable/info"></Button>
+   		</LinearLayout>
+   		<LinearLayout android:id="@+id/playerButtons" 
+    				android:layout_width="fill_parent" 
+    				android:layout_height="wrap_content"
+    				android:orientation="horizontal"
+    				android:layout_marginTop="5dp">
+    				
+    				<Button android:text="" android:id="@+id/playPlayer" 
+	        			android:layout_width="50dp" 
+	        			android:layout_height="50dp"
+	        			android:layout_margin="15dp"
+	        			android:background="@drawable/playsong"
+	        			></Button>
+    				<Button android:text="" android:id="@+id/pausePlayer" 
+	        			android:layout_width="50dp" 
+	        			android:layout_height="50dp"
+	        			android:layout_margin="15dp"
+	        			android:background="@drawable/pausesong"></Button>
+	        		<Button android:text="" android:id="@+id/stopPlayer" 
+	        			android:layout_width="50dp" 
+	        			android:layout_height="50dp"
+	        			android:layout_margin="15dp"
+	        			android:background="@drawable/stopsong"></Button>
+	        		
+    	</LinearLayout>
+   		<LinearLayout android:id="@+id/playerSeekbar" 
+    				android:layout_width="fill_parent" 
+    				android:layout_height="wrap_content"
+    				android:orientation="vertical">
+    				
+    	 <TextView android:text="text" android:id="@+id/connectionInfo" 
+	        			android:layout_width="wrap_content" 
+	        			android:layout_height="wrap_content"
+	        			android:layout_margin="15dp"
+	        			android:visibility="gone"
+	        			></TextView>
+	        			
+       	 <SeekBar android:layout_width="match_parent" android:layout_height="50dp" android:id="@+id/songSeekBar"
+        		android:visibility="gone"
+        		android:max="100"
+   				android:progress="0"
+   				android:layout_marginTop="10dp"
+   				android:layout_marginBottom="30dp"
+   				android:secondaryProgress="0"
+   				></SeekBar>
+   		</LinearLayout>
+    	
+    </LinearLayout>
+
+   

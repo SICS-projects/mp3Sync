@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package com.sics_android_sdk.Exceptions;
+
+import android.app.Activity;
+
+import com.sics_android_sdk.GUI.AlertDialogGUI;
+import com.sics_android_sdk.Manager.PreferencesManager;
+
+
+/**
+ * @author Joachim
+ *
+ */
+public class HttpPortNotValidException extends Exception {
+	private Activity activity;
+	
+	public HttpPortNotValidException(Activity activity){
+		this.activity = activity;
+	}
+	
+	public void showDialog(){
+		String httpServerURL;
+		try {
+			httpServerURL = PreferencesManager.getPreferenceAsString(Global.getAppContext().getString(R.string.ftp_server_preference_host_key), "HTTP://", Global.getAppContext());
+			AlertDialogGUI.CreateAlertDialog("Error ..", "Problem with Http connection. Host is: \"" + httpServerURL + "\"", Global.getAppContext());
+		} catch (NoAppContextException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

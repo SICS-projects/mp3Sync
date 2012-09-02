@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package JGApps.MP3Synch.Exceptions;
+
+
+/**
+ * @author joachim
+ *
+ */
+public class GUIUpdateMetadataException extends Exception{
+	public void showDialog(){
+		String httpServerURL;
+		try {
+			AlertDialogGUI.CreateAlertDialog("Error ..", "Internal Error! " + this.getStackTrace(), Global.getAppContext());
+		} catch (NoAppContextException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

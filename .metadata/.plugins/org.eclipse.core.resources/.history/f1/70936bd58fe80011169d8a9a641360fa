@@ -1,0 +1,71 @@
+/**
+ * 
+ */
+package JGApps.MP3Synch.Manager;
+
+import java.util.Hashtable;
+import java.util.List;
+
+import com.sics_android_sdk.Exceptions.HttpPortNotValidException;
+import com.sics_android_sdk.Exceptions.WrongHttpReturnStateException;
+import com.sics_android_sdk.Exceptions.WrongHttpServerURLException;
+
+import android.app.ListActivity;
+
+import JGApps.MP3Synch.R;
+import JGApps.MP3Synch.Container.SongData;
+import JGApps.MP3Synch.Container.SongListOptions;
+import JGApps.MP3Synch.CustomAdapter.SyncFormListViewAdapter;
+import JGApps.MP3Synch.Exceptions.NoAppContextException;
+import JGApps.MP3Synch.Global.Global;
+
+/**
+ * @author Joachim
+ *
+ */
+public class GUIManager {
+	public static void mergeSongListWithServer() {
+		List<SongData> serverData;
+		List<SongData> localSongData;
+		try {
+			//TODO: Merging algorithmus verbessern. Bekommt so nicht alle songs mit(contextswitch vor getdatalistfromserver)
+//			int maxSongIDOnDatabase = DatabaseManager.getLastSongListIDFromDatabase();
+			
+			
+			serverData = HttpMetadataManager.getDataListFromServer();
+			
+			DatabaseManager.saveNewSongs(serverData);
+			
+			localSongData = DatabaseManager.getSonglistFromDatabase();
+			
+			SongListOptions slOptions = SongListOptionsManager.createSongListOptions(localSongData);
+			
+			fillListView(slOptions);
+		} catch (NoAppContextException e) {
+			e.printStackTrace();
+		} catch (HttpPortNotValidException e) {
+			e.printStackTrace();
+		} catch (WrongHttpReturnStateException e) {
+			e.printStackTrace();
+		} catch (WrongHttpServerURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void loadSonglistFromDatabase(){
+
+		List<SongData> localSongData = DatabaseManager.getSonglistFromDatabase();
+		
+		SongListOptions slOptions = SongListOptionsManager.createSongListOptions(localSongData);
+		
+			fillListView(slOptions);
+	}
+	
+	 private static void fillListView(SongListOptions slOptions) {
+//		 ListActivity lActivity = (ListActivity)Global.getAppContext();
+//	    ((ListActivity)Global.getAppContext()).setListAdapter(new SyncFormListViewAdapter(lActivity, R.layout.synchfilelistviewitem, slOptions));
+	 }
+	 
+
+}

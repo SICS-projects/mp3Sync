@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="internal_error">Internal error!</string>
+    <string name="error_title">Error ...</string>
+    <string name="http_connection_error">Problem with http connection. Host is: </string>
+    
+</resources>

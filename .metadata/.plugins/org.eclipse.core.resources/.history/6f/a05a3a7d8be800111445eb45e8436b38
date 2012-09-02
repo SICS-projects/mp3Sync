@@ -1,0 +1,10 @@
+package com.sics_android_sdk.Exceptions;
+
+import JGApps.MP3Synch.GUI.AlertDialogGUI;
+import JGApps.MP3Synch.Global.Global;
+
+public class WrongHostnameOrPortException extends Exception{
+
+	public void showDialog(){
+	}
+}

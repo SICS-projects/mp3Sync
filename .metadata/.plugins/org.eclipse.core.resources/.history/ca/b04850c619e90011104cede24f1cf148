@@ -1,0 +1,124 @@
+package com.sics_android_sdk.Comunication;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
+import com.sics_android_sdk.Helper.DBConnector;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class SqLiteController implements DataAccessInterface{
+	SQLiteDatabase database = null;
+	DBConnector configDBHelper = null;
+	
+	public SqLiteController(Context context){
+		configDBHelper = new DBConnector(context);
+		
+	}
+	
+	public void close(){
+		database.close();
+	}
+	
+	public long update(String table, ContentValues values, String whereClause, String[] whereArgs, boolean useInsert){
+		database = configDBHelper.getWritableDatabase();
+		
+		long affectedRows = (long)database.update(table, values, whereClause, whereArgs);
+		if (affectedRows == 0 && useInsert == true){
+			
+			affectedRows = insert(table, null, values);
+		}
+		
+		return affectedRows;
+	}
+	
+	public Cursor selectAsCursor(String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy){
+		database = configDBHelper.getReadableDatabase();
+		Cursor dbCursor = database.query(table, columns , selection, selectionArgs, groupBy, having, orderBy);
+		
+		return (dbCursor);
+	}
+	
+	public List<Hashtable<String, Object>> selectAsHash(String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy){
+		database = configDBHelper.getReadableDatabase();
+		
+		List<Hashtable<String, Object>> dataValues = new ArrayList<Hashtable<String, Object>>();
+		
+		Cursor dbCursor = database.query(table, columns , selection, selectionArgs, groupBy, having, orderBy);
+		
+		//int j = dbCursor.getCount();
+		dbCursor.moveToFirst();
+		do{
+			Hashtable<String, Object> dbLine = new Hashtable<String, Object>();
+			
+			if (dbCursor.getCount() > 0){
+				for(int j=0; j<dbCursor.getColumnCount();j++){
+						String colValue = dbCursor.getString(j);
+						dbLine.put(columns[j], colValue);
+				}
+				dataValues.add(dbLine);
+			}
+			
+		}while(dbCursor.moveToNext());
+		
+		dbCursor.close();
+		database.close();
+		
+		return (dataValues);
+	}
+	
+	public long insert(String table, String nullColumnHack, ContentValues values){
+		database = configDBHelper.getWritableDatabase();
+		
+		long affactedRows = 0;
+		try{
+			affactedRows = database.insert(table, null, values);
+		}
+		catch(Exception e){
+		
+		}finally{
+			database.close();
+		}
+		return(affactedRows);
+	}
+	
+	public void delete(String table){
+		database = configDBHelper.getReadableDatabase();
+		database.delete(table, null, null);
+		
+		database.close();
+	}
+	
+	
+	public void createTableIfNotExists(String table, String[] columns, String[] columsOptions, Boolean autoincrement){
+		database = configDBHelper.getWritableDatabase();
+		
+		String autoincrementS = "";
+		if (autoincrement){
+			autoincrementS = "autoincrement";
+		}
+		
+		String columnsS = "";
+		for(int i=0; i<columns.length;i++){
+			columnsS += columns[i] + " text not null";
+			
+			if (i < columns.length -1){
+				columnsS += ", ";
+			}
+		}
+		
+		database.execSQL("CREATE TABLE IF NOT EXISTS " + table
+                + " (_id integer primary key " + autoincrementS + ","
+                + columnsS + ")"
+                + ";");
+		
+		database.close();
+	}
+	
+}

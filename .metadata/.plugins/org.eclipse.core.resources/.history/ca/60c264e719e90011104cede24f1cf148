@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package com.sics.mp3Sync.exceptions;
+
+import JGApps.MP3Synch.R;
+
+/**
+ * @author Joachim
+ *
+ */
+public class NoAppContextException extends Exception {
+	public NoAppContextException(){
+		
+	}
+}

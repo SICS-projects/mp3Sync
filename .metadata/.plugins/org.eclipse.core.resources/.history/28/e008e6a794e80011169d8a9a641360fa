@@ -1,0 +1,72 @@
+/**
+ * 
+ */
+package JGApps.MP3Synch.Manager;
+
+import java.util.Hashtable;
+import java.util.List;
+
+import com.sics_android_sdk.Exceptions.HttpPortNotValidException;
+import com.sics_android_sdk.Exceptions.WrongHttpReturnStateException;
+import com.sics_android_sdk.Exceptions.WrongHttpServerURLException;
+
+import android.app.Activity;
+import android.app.ListActivity;
+
+import JGApps.MP3Synch.R;
+import JGApps.MP3Synch.Container.SongData;
+import JGApps.MP3Synch.Container.SongListOptions;
+import JGApps.MP3Synch.CustomAdapter.SyncFormListViewAdapter;
+
+/**
+ * @author Joachim
+ *
+ */
+public class GUIManager {
+	private Activity activity;
+	public GUIManager(Activity activity){
+		this.activity = activity;
+	}
+	
+	public void mergeSongListWithServer() {
+		List<SongData> serverData;
+		List<SongData> localSongData;
+		try {
+			//TODO: Merging algorithmus verbessern. Bekommt so nicht alle songs mit(contextswitch vor getdatalistfromserver)
+//			int maxSongIDOnDatabase = DatabaseManager.getLastSongListIDFromDatabase();
+			
+			
+			serverData = HttpMetadataManager.getDataListFromServer();
+			
+			DatabaseManager.saveNewSongs(serverData);
+			
+			localSongData = DatabaseManager.getSonglistFromDatabase();
+			
+			SongListOptions slOptions = SongListOptionsManager.createSongListOptions(localSongData);
+			
+			fillListView(slOptions);
+		} catch (HttpPortNotValidException e) {
+			e.printStackTrace();
+		} catch (WrongHttpReturnStateException e) {
+			e.printStackTrace();
+		} catch (WrongHttpServerURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadSonglistFromDatabase(){
+
+		List<SongData> localSongData = DatabaseManager.getSonglistFromDatabase();
+		
+		SongListOptions slOptions = SongListOptionsManager.createSongListOptions(localSongData);
+		
+		fillListView(slOptions);
+	}
+	
+	 private void fillListView(SongListOptions slOptions) {
+	    this.activity.setAdapter(new SyncFormListViewAdapter(lActivity, R.layout.synchfilelistviewitem, slOptions));
+	 }
+	 
+
+}

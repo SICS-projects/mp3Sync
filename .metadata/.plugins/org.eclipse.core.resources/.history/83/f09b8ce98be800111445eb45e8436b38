@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+package JGApps.MP3Synch.Exceptions;
+
+
+/**
+ * @author joachim
+ *
+ */
+public class GlobalValueIsNullException extends Exception{
+	}
+}

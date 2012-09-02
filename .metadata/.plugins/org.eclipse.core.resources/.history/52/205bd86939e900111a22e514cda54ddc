@@ -1,0 +1,25 @@
+package com.sics.mp3Sync.threads;
+
+import java.io.IOException;
+
+import com.sics_android_sdk.Exceptions.WrongHttpServerURLException;
+import com.sics_android_sdk.Exceptions.WrongLoginnameOrPasswordException;
+
+import android.os.AsyncTask;
+
+public class DownloadMp3ListTask extends AsyncTask<String, Integer, byte[]>{
+	public DownloadMp3ListTask(){
+		
+	}
+	
+	 protected byte[] doInBackground(String... metadata) {
+	    	
+			String remoteFile = metadata[0];
+			String localFile = metadata[1];
+			
+					
+
+			return new byte[4];
+			
+	    }
+}

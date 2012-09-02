@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+package com.sics_android_sdk.Exceptions;
+
+import JGApps.MP3Synch.GUI.AlertDialogGUI;
+import JGApps.MP3Synch.Global.Global;
+
+/**
+ * @author joachim
+ *
+ */
+public class WrongLoginnameOrPasswordException extends Exception{
+
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="server_preference_category_title">"Server preferences"</string>
+	<string name="ftp_server_preference_category_title">"FTP server preferences"</string>
+	<string name="sql_server_preference_category_title">"SQL server preferences"</string>
+	<string name="http_server_preference_category_title">"HTTP server preferences"</string>
+
+	<string name="ftp_server_preference_host_title">FTP server host</string>
+	<string name="ftp_server_preference_port_title">FTP Port</string>
+	<string name="sql_server_preference_host_title">SQL server host</string>
+	<string name="sql_server_preference_port_title">SQL Port</string>
+	<string name="http_server_preference_host_title">HTTP server host</string>
+	<string name="http_server_preference_port_title">HTTP Port</string>
+	
+	
+	<string name="app_preference_category_title">"Preferences"</string>
+	<string name="ftp_server_preference_username_title">Username</string>
+	<string name="ftp_server_preference_password_title">Password</string>
+	<string name="sql_server_preference_username_title">Username</string>
+	<string name="sql_server_preference_password_title">Password</string>
+	<string name="http_server_preference_username_title">Username</string>
+	<string name="http_server_preference_password_title">Password</string>
+	
+	<string name="ftp_server_preference_hostdialog_text">Please enter the host adress.</string>
+	<string name="ftp_server_preference_portdialog_text">Please enter the port.</string>
+	<string name="ftp_server_preference_usernamedialog_text">Please enter the username.</string>
+	<string name="ftp_server_preference_passworddialog_text">Please enter the password.</string>
+	<string name="http_server_preference_hostdialog_text">Please enter the host adress.</string>
+	<string name="http_server_preference_portdialog_text">Please enter the port.</string>
+	<string name="http_server_preference_usernamedialog_text">Please enter the username.</string>
+	<string name="http_server_preference_passworddialog_text">Please enter the password.</string>
+	<string name="sql_server_preference_hostdialog_text">Please enter the host adress.</string>
+	<string name="sql_server_preference_portdialog_text">Please enter the port.</string>
+	<string name="sql_server_preference_usernamedialog_text">Please enter the username.</string>
+	<string name="sql_server_preference_passworddialog_text">Please enter the password.</string>
+	
+	<string name="server_update_loop_title">Server Update Loop</string>
+	<string name="server_update_loop_text">Time in ms, to update the songlist.</string>
+	
+	<string name="sync_preference_category_title">Preferences of syncronisation</string>
+	
+	<string name="app_name">WoS MP3-Titan</string>
+</resources>
