@@ -10,8 +10,7 @@ _____________
   The smart feature learns from your choises in the past and use that in a very special way.
 
 * a server part (written in PHP) that organizes all your mp3 files. 
-  The organizer allows you for example: To specify what file has to be on what device.
-                                        When sould the mp3 files be syncronized(only on Wifi/WLAN connection, only if there is traffic left on G3)
+  The organizer allows you for example: To specify what file has to be on what device, when sould the mp3 files be syncronized(only on Wifi/WLAN connection, only if there is traffic left on G3)
 
 * a desktop part (written in java) that has the same funtions as the mobile program parts. 
 
