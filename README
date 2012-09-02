@@ -1,40 +1,48 @@
 What is this project about:
 
-You can imagine the mp3Sync project as a mp3 player for android. But this mp3 player does snycronization for you and as you wish to.
+The mp3Sync project is a software system that includes:
 
-For example:
+Main featues:
+_____________
 
-You have 3 devices(One Windows PC at home, one Windows PC at work and one Android mobile phone):
-* You add one song on the PC at home and you want to have that song automaticaly syncronized on the PC at work. 
-  This project does that for you.
-* You add one song on the PC at home and your want to have that song automatically syncronized with you Android mobile phone, as soon as it is connected to a WLan point. 
-  This project dies that for you.
+* a mobile mp3 player for (android and apple) devices that syncronizes the mp3 files to a server and from a server. It does that in the way as you wish to. 
+  You can change settings if you wish to or/and use the smart feature of the player. 
+  The smart feature learns from your choises in the past and use that in a very special way.
 
-This project should syncronize your songs at your command automaticaly if you wish to. Maybe you dont want a syncronization. 
-Maybe you want some songs as stream if you press the play button. 
+* a server part (written in PHP) that organizes all your mp3 files. 
+  The organizer allows you for example: To specify what file has to be on what device.
+                                        When sould the mp3 files be syncronized(only on Wifi/WLAN connection, only if there is traffic left on G3)
 
+* a desktop part (written in java) that has the same funtions as the mobile program parts. 
+
+
+This is what the system should work like and there are more features planed for the feature. 
+But at the moment it is important to create, test and release the main featues. 
 
 
 
 What is the technical background behind the project:
 ====================================================
 
-The syncronization is desiged at folowing:
+The syncronization is desiged as folowing:
 
-There is one server written in php. On this server is a mysql database. 
+There is one server written in php. On this server is a mysql database working. 
 The server knows what mp3 file is on what device(if you have more than one device. for example: android mobile phone, and personal computer)
 
-If some files where created new on one device, the server copies the files to the other device. But only you want that. If you dont want that, the server only regognizes that there are new files, that can be copied. If you want that files by another time, the server copies it.
+So if there is syncronization needed the server starts that.
 
 
 
 Summery
-=======_
-This is what the project should be like. Right know there is about 50% work done. To finish this project, we need more worker on it. So please feel free to help us.
+_______
+
+This is what the project should be like. Right know there is about 50% work done. To finish this project, we need more workers on it. So please feel free to help us.
 
 If you want to have more information about everything in this project you can visit the wiki pages. In case you cannot find the information you need in the wiki pages, please contact us via email at sics-projects@gmx.at or [newsgroup]: https://groups.google.com/forum/?fromgroups#!forum/mp3sync .
 
 
 License:
 This project is published under the GPL(GNU General Public License).
+In addition to the GPL Licence:
+It is not allowed to use the system or parts of the system in commertial products. 
  

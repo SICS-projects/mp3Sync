@@ -1,0 +1,59 @@
+/**
+ * 
+ */
+package com.sics.mp3Sync.events;
+
+import java.util.ArrayList;
+import java.util.EventObject;
+import java.util.List;
+
+import com.sics.mp3Sync.eventListener.DownloadListener;
+import com.sics.mp3Sync.threads.DownloadDataTask;
+
+
+/**
+ * @author joachim
+ *
+ */
+public class FinishedDownloadEvent extends EventObject {
+
+	/**
+	 * @param source
+	 */
+	private List<DownloadListener> registredListeners = new ArrayList<DownloadListener>();
+	
+	private String nameOfItem = "";
+	
+	public FinishedDownloadEvent(Object source) {
+		super(source);
+		
+		this.nameOfItem = ((DownloadDataTask)source).nameOfFile;
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void actionPerformed(EventObject e) {
+	    //do nothing if no listeners are registered
+	    if (registredListeners.isEmpty()) return;
+	    
+	    for(DownloadListener listener : registredListeners){
+	    	listener.onDownloadFinished((FinishedDownloadEvent) e);
+	    }
+	    
+
+/*	    WizardEvent w;
+	    Wizard source = this;
+	    if (e.getSource() == nextButton) {
+	       w = new WizardEvent(source, WizardEvent.NEXT_SELECTED);
+	       wizardListener.nextSelected(w);
+	    }*/
+	    //handle the rest of the wizard buttons in a similar fashion
+	}
+	
+	public void addDownloadFinishedListener(DownloadListener listener){
+		registredListeners.add(listener);
+	}
+	
+	public String getNameOfItem(){
+		return nameOfItem;
+	}
+}

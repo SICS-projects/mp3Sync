@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package com.sics_android_sdk.Exceptions;
+
+import android.app.Activity;
+
+import com.sics_android_sdk.GUI.AlertDialogGUI;
+import com.sics_android_sdk.Manager.PreferencesManager;
+
+
+/**
+ * @author Joachim
+ *
+ */
+public class HttpPortNotValidException extends Exception {
+	private Activity activity;
+	
+	public HttpPortNotValidException(Activity activity){
+		this.activity = activity;
+	}
+	
+	public void showDialog(){
+		String httpServerURL;
+
+		AlertDialogGUI.CreateAlertDialog("Error ..", "Problem with internet connection.", activity);
+	}
+
+}

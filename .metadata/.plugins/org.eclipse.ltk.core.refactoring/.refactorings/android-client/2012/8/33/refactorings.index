@@ -1,0 +1,38 @@
+1345213674424	Move folder
+1345219477342	Move compilation units
+1345219713588	Move compilation unit
+1345219860318	Move compilation unit
+1345220259695	Move compilation unit
+1345223679389	Delete element
+1345223821308	Delete element
+1345223880564	Delete element
+1345223892183	Delete element
+1345225492861	Rename method 'initProgram'
+1345226096755	Delete element
+1345228018970	Delete element
+1345279643214	Delete element
+1345280957098	Delete element
+1345282016717	Rename package 'JGApps.MP3Synch.Container'
+1345282032802	Rename package 'JGApps.MP3Synch.CustomAdapter'
+1345282046809	Rename package 'JGApps.MP3Synch.EventListener'
+1345282058210	Rename package 'JGApps.MP3Synch.Events'
+1345282103065	Rename package 'JGApps.MP3Synch.Exceptions'
+1345282114100	Rename package 'JGApps.MP3Synch.Helper'
+1345282134169	Rename package 'JGApps.MP3Synch.Interfaces'
+1345282143256	Rename package 'JGApps.MP3Synch.Manager'
+1345282158365	Rename package 'JGApps.MP3Synch.Mapping.GUI'
+1345282196634	Rename package 'JGApps.MP3Synch.Mapping.GUI.OptionsContainer'
+1345282208017	Rename package 'JGApps.MP3Synch.Misc.Enums'
+1345282216948	Rename package 'JGApps.MP3Synch.Threads'
+1345282939273	Extracts string 'name' into R.string.name
+1345282985874	Extracts string 'text' into R.string.text
+1345283017440	Extracts string 'TextView' into R.string.textview
+1345283040006	Extracts string 'TextView' into R.string.textview
+1345283058767	Extracts string 'TextView' into R.string.textview
+1345299537154	Rename method 'mergeSongListWithServer'
+1345304129791	Delete element
+1345304583129	Delete element
+1345307923002	Rename field 'finishedDownloadEvent'
+1345320898624	Delete element
+1345320910330	Delete element
+1345320942508	Delete element

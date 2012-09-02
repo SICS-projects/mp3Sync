@@ -1,0 +1,9 @@
+package com.sics.mp3Sync.threads;
+
+import android.os.AsyncTask;
+
+public class DownloadMp3ListTask extends AsyncTask<String, Integer, byte[]>{
+	public DownloadMp3ListTask(){
+		
+	}
+}

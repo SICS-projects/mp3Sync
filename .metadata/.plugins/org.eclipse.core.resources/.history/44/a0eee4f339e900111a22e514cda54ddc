@@ -1,0 +1,43 @@
+package com.sics.mp3Sync.threads;
+
+import java.io.IOException;
+
+import org.apache.http.HttpStatus;
+import org.apache.http.util.EntityUtils;
+
+import com.sics_android_sdk.Exceptions.WrongHttpReturnStateException;
+import com.sics_android_sdk.Exceptions.WrongHttpServerURLException;
+import com.sics_android_sdk.Exceptions.WrongLoginnameOrPasswordException;
+import com.sics_android_sdk.Helper.HttpServerConnector;
+
+import android.os.AsyncTask;
+
+public class DownloadMp3ListTask extends AsyncTask<String, Integer, byte[]>{
+	private String address = "";;
+	private int port;
+	
+	public DownloadMp3ListTask(String address, int port){
+		this.address = address;
+		this.port = port;
+	}
+	
+    protected byte[] doInBackground(String... metadata) {
+    	
+    	HttpServerConnector httpServerConnector = HttpServerConnector(httpServerURL, port);
+		
+    	while (httpServerConnector.getStatusLine() == null){
+			
+		}
+		if(httpServerConnector.getStatusLine().getStatusCode() == HttpStatus.SC_OK)
+		{
+				xmlData = EntityUtils.toString(rp.getEntity());
+		}
+		else {
+			throw new WrongHttpReturnStateException();
+		}
+				
+
+		return new byte[4];
+		
+    }
+}

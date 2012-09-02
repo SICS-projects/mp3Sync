@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package JGApps.MP3Synch.Exceptions;
+
+/**
+ * @author Joachim
+ *
+ */
+public class AppContextAlreadySetException extends Exception{
+	public AppContextAlreadySetException(){
+		
+	}
+}

@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+package com.sics_android_sdk.Exceptions;
+
+import com.sics_android_sdk.Manager.PreferencesManager;
+
+import JGApps.MP3Synch.R;
+import JGApps.MP3Synch.GUI.AlertDialogGUI;
+import JGApps.MP3Synch.Global.Global;
+
+/**
+ * @author Joachim
+ *
+ */
+public class HttpPortNotValidException extends Exception {
+	public HttpPortNotValidException(){
+		
+	}
+	
+	public void showDialog(){
+		String httpServerURL;
+		try {
+			httpServerURL = PreferencesManager.getPreferenceAsString(Global.getAppContext().getString(R.string.ftp_server_preference_host_key), "HTTP://", Global.getAppContext());
+			AlertDialogGUI.CreateAlertDialog("Error ..", "Problem with Http connection. Host is: \"" + httpServerURL + "\"", Global.getAppContext());
+		} catch (NoAppContextException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

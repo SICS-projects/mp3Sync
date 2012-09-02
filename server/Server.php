@@ -7,8 +7,8 @@ class Server {
 	}
 	
 	private function GetDataForDevice($device){
-		$verbindung = mysql_connect("localhost", "username_db", "password_db");
-		mysql_select_db("name_db", $verbindung);
+		$verbindung = mysql_connect("localhost", "root", "");
+		mysql_select_db("mp3sync", $verbindung);
 		$dataListe = mysql_query("SELECT _id, name, filePath FROM songs WHERE belongsToUser = (SELECT belongsToUser FROM devices WHERE name = 'TestDevice')
 									   AND isSynched = 0", $verbindung);
 
